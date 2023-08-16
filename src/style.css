@@ -12,8 +12,78 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  position: relative;
+}
+.hidden {
+  display: none;
+}
+.start {
+  display: flex;
+}
+.choose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #c9f9fc;
+  align-items: center;
+  justify-content: center;
+}
+.choose__x,
+.choose__o {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.choose__x:hover::before,
+.choose__x:hover::after,
+.choose__o:hover::before,
+.choose__o:hover::after {
+  opacity: 0.6;
 }
 
+.choose__x::before,
+.choose__x::after,
+.choose__o::before,
+.choose__o::after {
+  content: '';
+  position: absolute;
+}
+
+.choose__x::before,
+.choose__x::after {
+  width: 30px;
+  height: 100px;
+  background: linear-gradient(to bottom, #fcd015 50%, #fbb500 50%);
+}
+.choose__x::before {
+  transform: rotate(45deg);
+}
+.choose__x::after {
+  transform: rotate(-45deg);
+}
+.choose__o::before,
+.choose__o::after {
+  border-radius: 50%;
+}
+.choose__o::before {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(to bottom, #fcd015 50%, #fbb500 50%);
+  border-radius: 50%;
+}
+.choose__o::after {
+  width: 40px;
+  height: 50px;
+  background-color: #c9f9fc;
+}
 .board {
   width: 800px;
   height: 800px;
